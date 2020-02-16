@@ -6,15 +6,15 @@ namespace CS321_W4D2_ExerciseLogAPI.Core.Services
 {
     public interface IActivityRepository
     {
-        // create
+        // Create
         Activity Add(Activity todo);
-        // read
+        // Read
         Activity Get(int id);
-        // update
+        // Update
         Activity Update(Activity todo);
-        // delete
+        // Delete
         void Remove(Activity todo);
-        // list
+        // List
         IEnumerable<Activity> GetAll();
     }
 }

@@ -20,7 +20,7 @@
     "CS321_W4D2_ExerciseLogAPI": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "api/activities",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

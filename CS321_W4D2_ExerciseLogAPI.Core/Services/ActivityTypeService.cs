@@ -8,6 +8,7 @@ namespace CS321_W4D2_ExerciseLogAPI.Core.Services
     {
         private IActivityTypeRepository _activityTypeRepo;
 
+        // inject an IActivityTypeRepository in the constructor
         public ActivityTypeService(IActivityTypeRepository ActivityTypeRepo)
         {
             _activityTypeRepo = ActivityTypeRepo;
@@ -15,36 +16,34 @@ namespace CS321_W4D2_ExerciseLogAPI.Core.Services
 
         public ActivityType Add(ActivityType ActivityType)
         {
-            // TODO: implement add
+            // add new activity type
             _activityTypeRepo.Add(ActivityType);
             return ActivityType;
         }
 
         public ActivityType Get(int id)
         {
-            // TODO: return the specified ActivityType using Find()
+            // get activity type by id
             return _activityTypeRepo.Get(id);
-        }
-
-        public IEnumerable<ActivityType> GetAll()
-        {
-            // TODO: return all ActivityTypes using ToList()
-            return _activityTypeRepo.GetAll();
         }
 
         public ActivityType Update(ActivityType updatedActivityType)
         {
-            // update the todo and save
+            // update activity type
             var ActivityType = _activityTypeRepo.Update(updatedActivityType);
             return ActivityType;
         }
 
         public void Remove(ActivityType ActivityType)
         {
-            // TODO: remove the ActivityType
+            // delete activity type
             _activityTypeRepo.Remove(ActivityType);
         }
 
+        public IEnumerable<ActivityType> GetAll()
+        {
+            // get all activity types
+            return _activityTypeRepo.GetAll();
+        }
     }
-
 }

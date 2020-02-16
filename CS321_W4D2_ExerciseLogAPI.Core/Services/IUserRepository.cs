@@ -6,17 +6,15 @@ namespace CS321_W4D2_ExerciseLogAPI.Core.Services
 {
     public interface IUserRepository
     {
-        // CRUDL - create (add), read (get), update, delete (remove), list
-
-        // create
+        // Create
         User Add(User todo);
-        // read
+        // Read
         User Get(int id);
-        // update
+        // Update
         User Update(User todo);
-        // delete
+        // Delete
         void Remove(User todo);
-        // list
+        // List
         IEnumerable<User> GetAll();
     }
 }

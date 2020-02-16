@@ -15,45 +15,48 @@ namespace CS321_W4D2_ExerciseLogAPI.Core.Services
             _activityTypeRepo = activityTypeRepo;
         }
 
-        public Activity Add(Activity Activity)
+        public Activity Add(Activity activity)
         {
             // retrieve the ActivityType so we can check
-            var activityType = _activityTypeRepo.Get(Activity.ActivityTypeId);
+            var activityType = _activityTypeRepo.Get(activity.ActivityTypeId);
+
             // for a DurationAndDistance activity, you must supply a Distance
             if (activityType.RecordType == RecordType.DurationAndDistance
-                && Activity.Distance <= 0)
+                && activity.Distance <= 0)
             {
                 throw new ApplicationException("You must supply a Distance for this activity.");
             }
-            _activityRepo.Add(Activity);
-            return Activity;
+            if (activity.Duration <= 0)
+            {
+                throw new ApplicationException("You must supply a duration for this activity.");
+            }
+            _activityRepo.Add(activity);
+            return activity;
         }
 
         public Activity Get(int id)
         {
-            // TODO: return the specified Activity using Find()
+            // return specified activity by id with Find()
             return _activityRepo.Get(id);
         }
 
         public IEnumerable<Activity> GetAll()
         {
-            // TODO: return all Activitys using ToList()
+            // return all activities using ToList()
             return _activityRepo.GetAll();
         }
 
         public Activity Update(Activity updatedActivity)
         {
-            // update the todo and save
-            var Activity = _activityRepo.Update(updatedActivity);
-            return Activity;
+            // update the activity and save
+            var activity = _activityRepo.Update(updatedActivity);
+            return activity;
         }
 
         public void Remove(Activity Activity)
         {
-            // TODO: remove the Activity
+            // delete the activity
             _activityRepo.Remove(Activity);
         }
-
     }
-
 }

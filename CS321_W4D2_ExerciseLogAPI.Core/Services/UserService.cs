@@ -8,6 +8,7 @@ namespace CS321_W4D2_ExerciseLogAPI.Core.Services
     {
         private IUserRepository _userRepo;
 
+        // inject an IUserRepository in the constructor
         public UserService(IUserRepository userRepo)
         {
             _userRepo = userRepo;
@@ -15,37 +16,34 @@ namespace CS321_W4D2_ExerciseLogAPI.Core.Services
 
         public User Add(User User)
         {
-            // TODO: implement add
+            // add new user
             _userRepo.Add(User);
-            return User;
+            return (User);
         }
 
         public User Get(int id)
         {
-            // TODO: return the specified User using Find()
+            // get user by id
             return _userRepo.Get(id);
-        }
-
-        public IEnumerable<User> GetAll()
-        {
-            // TODO: return all Users using ToList()
-            return _userRepo.GetAll();
         }
 
         public User Update(User updatedUser)
         {
-            // update the todo and save
+            // update the user and save
             var User = _userRepo.Update(updatedUser);
             return User;
         }
 
         public void Remove(User User)
         {
-            // TODO: remove the User
+            // remove the user
             _userRepo.Remove(User);
         }
 
+        public IEnumerable<User> GetAll()
+        {
+            // return all users using ToList()
+            return _userRepo.GetAll();
+        }
     }
-
-
 }
